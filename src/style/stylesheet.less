@@ -1,0 +1,109 @@
+@themeColor:#0291d6;
+
+
+body{
+  padding: 0;
+  margin: 0;
+  background: #f7f7f7;
+}
+a{
+  color: #333;
+  text-decoration: none;
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+li{
+  list-style: none;
+}
+.wrapper{
+overflow: hidden;
+}
+.main-box{
+  width: 860px;
+  float:left;
+  overflow: hidden;
+}
+.row{
+  width: 1200px;
+  margin: 0 auto;
+}
+.btn{
+  background: @themeColor;
+  color: #fff;
+  display: inline-block;
+  padding: 0 15px;
+}
+nav{
+  height: 60px;
+  border-bottom: #eee solid 1px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  margin: 0;
+  line-height: 60px;
+  background: #fff;
+  .btn{
+    height: 34px;
+    line-height: 34px;
+  }
+  li{
+    display: inline-block;
+    margin: 0 15px;
+  }
+  .logo{
+    display: block;
+    float: left;
+    margin-top: 12px;
+    img{
+      height: 40px;
+    }
+  }
+  .nav-left-menu{
+    float: left;
+    margin-left: 30px;
+    li.active a{
+      font-weight: bold;
+    }
+  }
+  .nav-right-menu{
+    float: right;
+    li *{
+      font-size: 14px;
+    }
+  }
+}
+.wrapper-row{
+  margin-top: 80px;
+}
+.wrapper-row:after{
+  display: block;
+  content: '';
+  width: 100%;
+  clear: both;
+}
+.news-list{
+  li{
+    padding: 16px;
+    background: #fff;
+    margin-bottom: 20px;
+  }
+  .tit{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .text{
+    margin: 10px 0;
+    font-size: 14px;
+   color: #999;
+  }
+}
+.load-more{
+  width: 100%;
+ background: #ddd;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
