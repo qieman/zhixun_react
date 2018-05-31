@@ -3,19 +3,35 @@
  */
 import fetch from 'isomorphic-fetch'
 
-export function fetchList() {
-	return (dispatch) => {
+
+
+
+export function getNews(){
+	return {type:"START_GET_NEWS"}
+}
+
+
+
+let actions = {
+
+	fetchNew:()=>{
 		return fetch('./symbol.json')
 			.then(res => res.json())
-			.then(json => dispatch({ type: 'FETCH_LIST_SUCCESS', payload: json }));
+			.then(json => dispatch(actions.getNewsSuccess(json)))
+			.catch (()=>{dispatch(actions.getNewsErr())})
+	},
+	getNewsSuccess:(json)=>{
+		return {
+			type:'FETCH_NEWS_SUCCESS',
+			json
+		}
+	},
+	getNewsErr:()=>{
+		return {
+			type:'FETCH_NEWS_FALSE',
+			error:ture
+		}
 	}
 }
 
-export function fetchItem(id) {
-	return (dispatch) => {
-		if (!id) return Promise.resolve();
-		return fetch(`https://api.huobi.br.com/market/detail/merged?AccessKeyId=51111e88-dd4d1959-c15bd648-30498&symbol=${id}`)
-			.then(res => res.json())
-			.then(json => dispatch({ type: 'FETCH_ITEM_SUCCESS', payload: json }));
-	}
-}
+export  default  actions
